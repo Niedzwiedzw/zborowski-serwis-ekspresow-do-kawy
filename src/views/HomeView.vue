@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, ref, computed } from "vue";
+import { defineProps, defineEmits, ref, computed, onMounted } from "vue";
 
 const mobilePhoneNumber = "+48 797 273 118";
 const removeWhitespace = (number: string): string => {
@@ -21,12 +21,17 @@ const getWhatsappLink = (phoneNumber: string): string =>
   `https://wa.me/${sanitizeNumber(phoneNumber)}?text=${encodeURIComponent(
     whatsappMessage
   )}`;
+
+const windowNotLoaded = ref(true);
+onMounted(() => {
+  setTimeout(() => (windowNotLoaded.value = false), 1000);
+});
 </script>
 
 <template>
   <div class="HomeView">
     <div class="title section" id="title">
-      <video playsinline autoplay muted loop>
+      <video playsinline autoplay muted loop :class="{ windowNotLoaded }">
         <source src="../assets/video.mp4" type="video/webm" />
         Twoja przeglądarka nie wspiera plików wideo.
       </video>
@@ -146,6 +151,11 @@ const getWhatsappLink = (phoneNumber: string): string =>
   justify-content: center;
 }
 video {
+  &.windowNotLoaded {
+    opacity: 0;
+  }
+  opacity: 1;
+  transition: opacity 0.7s ease-in;
   /** Simulationg background-size: cover */
   object-fit: cover;
   height: 100%;
