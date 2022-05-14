@@ -39,7 +39,7 @@ const startLoadingVideo = () => {
         :class="{ windowNotLoaded }"
         :onloadstart="startLoadingVideo"
       >
-        <source src="../assets/video.mp4" type="video/webm" />
+        <source src="../assets/video-compressed.webm" type="video/webm" />
         Twoja przeglądarka nie wspiera plików wideo.
       </video>
       <img
