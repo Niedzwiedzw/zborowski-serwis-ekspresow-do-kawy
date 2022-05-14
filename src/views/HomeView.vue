@@ -144,7 +144,7 @@ const startLoadingVideo = () => {
           padding: $gap $gap * 2;
         }
         border-radius: $gap * 0.5;
-        background: hsl(200, 12%, 98%);
+        background: hsl(200, 12%, 100%);
         color: $black;
         @include nice-shadow;
 
