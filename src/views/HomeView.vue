@@ -94,6 +94,7 @@ const startLoadingVideo = () => {
     @include grid-center;
     height: 100vh;
     padding: 0.4rem;
+    gap: 0.8rem;
   }
   .title {
     video {
