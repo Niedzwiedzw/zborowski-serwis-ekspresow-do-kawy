@@ -147,8 +147,7 @@ const startLoadingVideo = () => {
         background: hsl(200, 12%, 100%);
         color: $black;
         @include nice-shadow;
-
-        text-align: left;
+        text-align: center;
         font-size: $size;
         .text {
           width: 100%;
