@@ -23,15 +23,22 @@ const getWhatsappLink = (phoneNumber: string): string =>
   )}`;
 
 const windowNotLoaded = ref(true);
-onMounted(() => {
+const startLoadingVideo = () => {
   setTimeout(() => (windowNotLoaded.value = false), 1000);
-});
+};
 </script>
 
 <template>
   <div class="HomeView">
     <div class="title section" id="title">
-      <video playsinline autoplay muted loop :class="{ windowNotLoaded }">
+      <video
+        playsinline
+        autoplay
+        muted
+        loop
+        :class="{ windowNotLoaded }"
+        :onloadstart="startLoadingVideo"
+      >
         <source src="../assets/video.mp4" type="video/webm" />
         Twoja przeglądarka nie wspiera plików wideo.
       </video>
