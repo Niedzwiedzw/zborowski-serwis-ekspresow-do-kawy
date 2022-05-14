@@ -71,6 +71,17 @@ const startLoadingVideo = () => {
           <div class="text">{{ address }}</div>
         </a>
       </div>
+      <div class="map container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1288.8298774957937!2d17.035251844610475!3d51.12177092519084!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470fe91180b2e65d%3A0xcd63d73b264cdac4!2sZborowski%20Serwis%20Ekspres%C3%B3w%20do%20Kawy!5e0!3m2!1spl!2spl!4v1652523501174!5m2!1spl!2spl"
+          width="100%"
+          height="100%"
+          style="border: 0"
+          allowfullscreen="true"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
     </div>
   </div>
 </template>
@@ -100,6 +111,10 @@ const startLoadingVideo = () => {
   }
   #links {
     grid-template-columns: 1fr;
+
+    @include for-desktop-up {
+      grid-template-columns: 1fr 2fr;
+    }
     .container {
       @include grid-center;
       gap: 0.4rem;
@@ -108,6 +123,10 @@ const startLoadingVideo = () => {
       max-width: 90vw;
       min-width: 15rem;
       grid-auto-rows: 1fr;
+      &.map {
+        height: 100%;
+        width: 100%;
+      }
       .link {
         $size: 1.4rem;
         $gap: $size * 0.5;
