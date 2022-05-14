@@ -1,0 +1,65 @@
+@import './_mixins.scss';
+@import './_animations.scss';
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+}
+
+body {
+    height: 100vh;
+    transition: color 0.5s, background-color 0.5s;
+    line-height: 1.6;
+    font-family: monospace;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a {
+    color: unset;
+    text-decoration: unset;
+}
+#app {
+    @include grid-center;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  font-style: italic;
+  @include grid-center;
+  // background-color: grey;
+  height: 2rem;
+  width: 100%;
+}
+
+
+.nobreak {
+    white-space: nowrap;
+}
+
+
+.grid-center {
+    @include grid-center;
+}
+
+.title {
+    font-weight: bolder;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+
+// STYLING OF EQUAL COMPONENTS
+.it-btn--primary {
+    background-color: $petroleum-primary;
+    box-shadow: 0 2px 4px $petroleum-dark;
+    border: 1px solid $petroleum-dark;
+    &:hover {
+        background-color: $petroleum-dark;
+        border: 1px solid $petroleum-dark;
+    }
+}
