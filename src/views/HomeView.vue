@@ -2,7 +2,12 @@
 import { defineProps, defineEmits, ref, computed } from "vue";
 
 const mobilePhoneNumber = "+48 797 273 118";
-
+const removeWhitespace = (number: string): string => {
+  for (let sign of [" ", "(", ")"]) {
+    number = number.split(sign).join("");
+  }
+  return number;
+};
 const sanitizeNumber = (number: string): string => {
   for (let sign of [" ", "+", "(", ")"]) {
     number = number.split(sign).join("");
@@ -41,7 +46,7 @@ const getWhatsappLink = (phoneNumber: string): string =>
           <div class="text">{{ mobilePhoneNumber }}</div>
         </a>
 
-        <a class="link" :href="`tel:${sanitizeNumber(mobilePhoneNumber)}`">
+        <a class="link" :href="`tel:${removeWhitespace(mobilePhoneNumber)}`">
           <div class="icon">
             <i class="pi pi-phone"></i>
           </div>
