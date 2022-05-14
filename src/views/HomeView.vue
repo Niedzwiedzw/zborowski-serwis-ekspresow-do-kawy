@@ -113,7 +113,7 @@ const startLoadingVideo = () => {
         $gap: $size * 0.5;
         @include grid-center;
         grid-template-columns: 3rem 1fr;
-        gap: $gap;
+        gap: $gap * 3;
         font-weight: 700;
         border: 4px solid black;
         padding: $gap;
