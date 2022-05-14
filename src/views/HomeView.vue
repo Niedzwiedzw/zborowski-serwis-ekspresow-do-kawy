@@ -93,7 +93,6 @@ const startLoadingVideo = () => {
   .section {
     @include grid-center;
     height: 100vh;
-    padding: 0.4rem;
     gap: 0.8rem;
   }
   .title {
@@ -116,9 +115,12 @@ const startLoadingVideo = () => {
     @include for-desktop-up {
       grid-template-columns: 1fr 2fr;
     }
+
+    $black: #4f4f4f;
+    $white: #f1f3f4;
     .container {
       @include grid-center;
-      gap: 0.4rem;
+      gap: 1.3rem;
       width: unset;
       height: unset;
       max-width: 90vw;
@@ -127,17 +129,24 @@ const startLoadingVideo = () => {
       &.map {
         height: 100%;
         width: 100%;
+        max-width: 100vw;
+        @include nice-shadow;
       }
       .link {
         $size: 1.4rem;
-        $gap: $size * 0.5;
+        $gap: $size * 0.6;
         @include grid-center;
         grid-template-columns: 3rem 1fr;
         gap: $gap * 3;
         font-weight: 700;
-        border: 4px solid black;
-        padding: $gap;
+        padding: $gap * 0.4 $gap;
+        @include for-desktop-up {
+          padding: $gap $gap * 2;
+        }
         border-radius: $gap * 0.5;
+        background: hsl(200, 12%, 98%);
+        color: $black;
+        @include nice-shadow;
 
         text-align: left;
         font-size: $size;
@@ -150,8 +159,8 @@ const startLoadingVideo = () => {
         }
         cursor: pointer;
         &:hover {
-          color: white;
-          background-color: black;
+          color: $white;
+          background-color: $black;
         }
       }
     }
